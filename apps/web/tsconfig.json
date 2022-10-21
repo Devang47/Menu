@@ -1,5 +1,12 @@
 {
   "extends": "tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/gradient.js", "src/lib/gradient.js"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "~/public/*": ["../public/*"],
+      "~/*": ["./*"]
+    }
+  },
   "exclude": ["node_modules"]
 }
