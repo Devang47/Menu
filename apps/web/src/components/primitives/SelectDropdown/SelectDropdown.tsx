@@ -11,7 +11,11 @@ type Option = {
   value: string
 }
 
-function Dropdown({ options, id = `select`, label = 'label here:' }: Props) {
+function SelectDropdown({
+  options,
+  id = `select`,
+  label = 'label here:'
+}: Props) {
   return (
     <div className="dropdown-menu">
       <div className="text-[10px] md:text-xs font-bold text-light-2 mb-1.5">
@@ -34,4 +38,4 @@ function Dropdown({ options, id = `select`, label = 'label here:' }: Props) {
   )
 }
 
-export default Dropdown
+export default SelectDropdown

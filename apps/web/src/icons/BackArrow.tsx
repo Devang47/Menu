@@ -9,7 +9,7 @@ function BackArrow() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M7 1L2 5L7 9" stroke="#969696" stroke-width="1.5" />
+      <path d="M7 1L2 5L7 9" stroke="#969696" strokeWidth="1.5" />
     </svg>
   )
 }

@@ -25,6 +25,7 @@
   },
   "packageManager": "yarn@1.22.19",
   "dependencies": {
+    "framer-motion": "^7.6.2",
     "sass": "^1.55.0"
   }
 }

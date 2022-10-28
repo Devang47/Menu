@@ -15,7 +15,7 @@ module.exports = {
         "dark-2": "#121212",
         "dark-3": "#1A1A1A",
 
-        "highlight": "#3E72F8",
+        "highlight": "#E16A27",
       }
     },
   },

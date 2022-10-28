@@ -11,9 +11,9 @@ function ArrowRight() {
       <path
         d="M1 3.5H8M8 3.5L4.9375 1M8 3.5L4.9375 6"
         stroke="#F1F1F1"
-        stroke-width="1.3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )

@@ -1,3 +1,6 @@
+import { useAppStore } from '~/context/use-app-store'
+import LoadingScreen from '../common/LoadingScreen'
+
 type Props = {
   children?: React.ReactNode
 
@@ -9,6 +12,7 @@ type Props = {
 export const PageLayout = ({ children }: Props) => {
   return (
     <>
+      {useAppStore().isLoading && <LoadingScreen />}
       {/* TODO Header */}
       {/* <Header /> */}
       <main>{children}</main>
