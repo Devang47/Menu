@@ -144,6 +144,7 @@ declare module '$env/static/private' {
 	export const npm_node_execpath: string;
 	export const npm_package_scripts_test_unit: string;
 	export const npm_config_version_tag_prefix: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -291,6 +292,7 @@ declare module '$env/dynamic/private' {
 		npm_node_execpath: string;
 		npm_package_scripts_test_unit: string;
 		npm_config_version_tag_prefix: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: string]: string | undefined;
 	}
