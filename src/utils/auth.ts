@@ -40,18 +40,15 @@ export const signOutUser = async () => {
 
 export const getCurrentUser = () => {
 	onAuthStateChanged(auth, (userData) => {
-		const notProtectedPages = ['/', '/login'];
+		const notProtectedPages = ['/', '/login', '/h/[id]'];
 
-		if (userData) {
-			if (notProtectedPages.includes(get(page).route?.id || '/')) {
+		if (!notProtectedPages.includes(get(page).route?.id || '/')) {
+			if (userData) {
 				isLoading.set(true);
-				console.log('goto');
 				goto('/dashboard');
+				user.set(userData);
 				isLoading.set(false);
-			}
-			user.set(userData);
-		} else {
-			if (get(page).route.id !== '/') {
+			} else {
 				goto('/login');
 			}
 		}
