@@ -5,6 +5,7 @@
 	export let squareSize: number;
 
 	let qrcode: any;
+	let link = `https://m.saklani.dev/${codeValue}`;
 
 	onMount(() => {
 		let script = document.createElement('script');
@@ -13,7 +14,7 @@
 
 		script.onload = function () {
 			qrcode = new QRCode('qrcode', {
-				text: `https://m.saklani.dev/${codeValue}`,
+				text: link,
 				width: squareSize,
 				height: squareSize,
 				colorDark: '#000000',
@@ -25,15 +26,13 @@
 
 	$: if (window && window.QRCode && qrcode) {
 		qrcode.clear();
-		qrcode.makeCode(codeValue);
+		qrcode.makeCode(link);
 	}
 </script>
 
 <diFv class="flex items-center justify-center flex-col gap-2 -mb-2">
 	<div id="qrcode" />
-	<div class="text-sm text-black text-center font-medium">
-		https://m.saklani.dev/{codeValue}
-	</div>
+	<div class="text-sm text-black text-center font-medium">{link}</div>
 </diFv>
 
 <style lang="postcss">
