@@ -13,7 +13,7 @@
 
 		script.onload = function () {
 			qrcode = new QRCode('qrcode', {
-				text: codeValue,
+				text: `https://m.saklani.dev/${codeValue}`,
 				width: squareSize,
 				height: squareSize,
 				colorDark: '#000000',
