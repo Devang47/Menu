@@ -5,7 +5,7 @@
 	export let squareSize: number;
 
 	let qrcode: any;
-	let link = `https://m.saklani.dev/${codeValue}`;
+	let link = `https://m.saklani.dev/h/${codeValue}`;
 
 	onMount(() => {
 		let script = document.createElement('script');
