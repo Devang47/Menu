@@ -2,6 +2,7 @@
 	import clsx from 'clsx';
 
 	export let placeholder: string = 'Enter text here...';
+	export let divClassName = '';
 	export let className = '';
 	export let label: string = '';
 	export let isTextarea: boolean = false;
@@ -19,7 +20,7 @@
 
 <div class="w-full">
 	{#if label}
-		<div class="text-[12px] md:text-xs font-semibold text-light-2 mb-1.5">
+		<div class="text-[12px] font-semibold text-light-2 mb-1.5">
 			{label}
 		</div>
 	{/if}
@@ -28,8 +29,9 @@
 		<textarea
 			bind:value
 			class={clsx(
-				'py-2.5 px-5 text-base md:text-sm rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 focus:border-highlight outline-none w-full duration-75 resize-y max-h-[400px] min-h-[50px]',
-				className
+				'py-2.5 px-5 text-base rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 focus:border-highlight outline-none w-full duration-75 resize-y max-h-[400px] min-h-[50px]',
+				className,
+				divClassName
 			)}
 			on:change
 			maxlength={maxLength}
@@ -43,7 +45,8 @@
 	{:else}
 		<div
 			class={clsx(
-				'text-base md:text-sm rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 focus-within:border-highlight outline-none w-full duration-75 flex items-center justify-start overflow-hidden',
+				'text-base rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 focus-within:border-highlight outline-none w-full duration-75 flex items-center justify-start overflow-hidden',
+				divClassName,
 				error && '!border-red-500'
 			)}
 		>

@@ -16,7 +16,7 @@ interface RegisterationData {
 		category: string;
 		items: {
 			name: string;
-			description: string;
+			description?: string;
 			price: string;
 		}[];
 	}[];

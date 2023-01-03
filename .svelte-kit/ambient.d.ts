@@ -52,7 +52,6 @@ declare module '$env/static/private' {
 	export const MallocNanoZone: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const ZDOTDIR: string;
-	export const TERM_SESSION_ID: string;
 	export const npm_package_devDependencies_svelte_preprocess: string;
 	export const npm_package_devDependencies__sveltejs_kit: string;
 	export const npm_package_private: string;
@@ -121,17 +120,15 @@ declare module '$env/static/private' {
 	export const npm_package_dependencies_svelte_transition_classes: string;
 	export const npm_package_scripts_format: string;
 	export const npm_lifecycle_script: string;
-	export const npm_package_scripts_postbuild: string;
-	export const LC_CTYPE: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const BUN_INSTALL: string;
 	export const NVM_BIN: string;
+	export const BUN_INSTALL: string;
 	export const npm_package_dependencies_sass: string;
 	export const npm_config_version_git_sign: string;
 	export const npm_config_ignore_scripts: string;
 	export const npm_config_user_agent: string;
-	export const INFOPATH: string;
 	export const HOMEBREW_CELLAR: string;
+	export const INFOPATH: string;
 	export const GIT_ASKPASS: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const npm_package_dependencies_clsx: string;
@@ -144,7 +141,6 @@ declare module '$env/static/private' {
 	export const npm_node_execpath: string;
 	export const npm_package_scripts_test_unit: string;
 	export const npm_config_version_tag_prefix: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -200,7 +196,6 @@ declare module '$env/dynamic/private' {
 		MallocNanoZone: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		ZDOTDIR: string;
-		TERM_SESSION_ID: string;
 		npm_package_devDependencies_svelte_preprocess: string;
 		npm_package_devDependencies__sveltejs_kit: string;
 		npm_package_private: string;
@@ -269,17 +264,15 @@ declare module '$env/dynamic/private' {
 		npm_package_dependencies_svelte_transition_classes: string;
 		npm_package_scripts_format: string;
 		npm_lifecycle_script: string;
-		npm_package_scripts_postbuild: string;
-		LC_CTYPE: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		BUN_INSTALL: string;
 		NVM_BIN: string;
+		BUN_INSTALL: string;
 		npm_package_dependencies_sass: string;
 		npm_config_version_git_sign: string;
 		npm_config_ignore_scripts: string;
 		npm_config_user_agent: string;
-		INFOPATH: string;
 		HOMEBREW_CELLAR: string;
+		INFOPATH: string;
 		GIT_ASKPASS: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		npm_package_dependencies_clsx: string;
@@ -292,7 +285,6 @@ declare module '$env/dynamic/private' {
 		npm_node_execpath: string;
 		npm_package_scripts_test_unit: string;
 		npm_config_version_tag_prefix: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: string]: string | undefined;
 	}

@@ -19,7 +19,7 @@
 			<Button
 				on:click={signInWithGoogle}
 				label="login-with-goole"
-				className="mt-14 !font-medium px-8 gap-2 bg-white/5 border-opacity-30 backdrop-blur-sm"
+				className="mt-16 !font-medium px-8 gap-2 bg-white/5 hover:bg-[#fff1] border-opacity-30 backdrop-blur-sm"
 			>
 				<GoogleIcon /> Continue with Google
 			</Button>

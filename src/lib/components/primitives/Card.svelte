@@ -16,9 +16,24 @@
 	)}
 >
 	{#if !noBgImages}
-		<ParallelLines className="w-[100px] absolute top-[-6px] left-[-6px] z-[-1]" />
-		<Rect1 className="w-[90px] absolute top-[45%] right-0 z-[-1]" />
-		<Circle1 className="w-[130px] absolute bottom-[-5px] left-[-10px] z-[-1]" />
+		<ParallelLines
+			className={clsx(
+				' absolute z-[-1]',
+				large ? 'top-[-6px] left-[10%] w-[130px] md:w-[160px]' : 'top-[-6px] left-[-6px] w-[100px]'
+			)}
+		/>
+		<Rect1
+			className={clsx(
+				'absolute z-[-1]',
+				large ? 'top-[50%] right-0 w-[100px] md:w-[160px]' : 'top-[45%] right-0 w-[90px]'
+			)}
+		/>
+		<Circle1
+			className={clsx(
+				'absolute z-[-1]',
+				large ? 'bottom-[-60px] left-[20%] w-[130px] md:w-[150px]' : 'bottom-[-50px] left-[-10px] w-[130px]'
+			)}
+		/>
 	{/if}
 
 	<slot />

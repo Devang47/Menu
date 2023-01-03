@@ -4,10 +4,13 @@
 	import TextInput from '$lib/components/primitives/TextInput.svelte';
 </script>
 
-<Container>
-	<Card className="mt-80 py-20 text-center flex items-center justify-center flex-col gap-10">
-		<h1 class="text-3xl font-bold font-neue">Search for a hotel</h1>
+<Container className="!max-w-[1200px]">
+	<Card
+		large
+		className="py-20 pb-24 text-center flex items-center justify-center flex-col gap-10 w-full"
+	>
+		<h1 class="text-[28px] sm:text-4xl font-bold font-neue">Search for a hotel</h1>
 
-		<TextInput />
+		<TextInput divClassName="!max-w-[25rem] mt-4 mx-auto" />
 	</Card>
 </Container>

@@ -43,7 +43,7 @@ export const getCurrentUser = () => {
 		const notProtectedPages = ['/', '/login'];
 
 		if (userData) {
-			if (notProtectedPages.includes(get(page).route.id || '/')) {
+			if (notProtectedPages.includes(get(page).route?.id || '/')) {
 				isLoading.set(true);
 				console.log('goto');
 				goto('/dashboard');
@@ -51,7 +51,9 @@ export const getCurrentUser = () => {
 			}
 			user.set(userData);
 		} else {
-			goto('/login');
+			if (get(page).route.id !== '/') {
+				goto('/login');
+			}
 		}
 
 		return userData;

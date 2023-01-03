@@ -6,7 +6,7 @@
 	import { user } from '$stores';
 </script>
 
-<footer class="flex items-center justify-between py-8 mt-32 w-10/12 max-w-[1200px] mx-auto">
+<footer class="flex items-center justify-between py-8 mt-32 px-6 max-w-[1200px] mx-auto">
 	<div class="flex items-center justify-center gap-4">
 		<Logo className="w-10 md:w-12" />
 		<h2 class="font-bold hidden md:block text-lg">Menyū</h2>

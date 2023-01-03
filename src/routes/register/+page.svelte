@@ -14,8 +14,9 @@
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import QrCode from '$lib/components/QRCode.svelte';
-	import { checkIfSlugIsAlreadyTaken, publishHotelMenu } from '$utils/db';
+	import { checkIfSlugIsAlreadyTaken, getHotelData, publishHotelMenu } from '$utils/db';
 	import { page } from '$app/stores';
+	import RegisterHeader from '$lib/components/register/RegisterHeader.svelte';
 
 	const defaultData: RegisterationData = {
 		hotel: {
@@ -49,20 +50,32 @@
 	onMount(() => {
 		const id = $page.url.searchParams.get('_id');
 
-		console.log({ id });
-
-		if (localStorage.getItem('pending-data')) {
-			pendingRegisterationData.set(JSON.parse(localStorage.getItem('pending-data') || '{}'));
+		if (id) {
+			const getHotelDataQ = async () => {
+				try {
+					let data = await getHotelData(id);
+					isLoading.set(false);
+					pendingRegisterationData.set(data as RegisterationData);
+				} catch (e) {
+					goto('/register', { replaceState: true });
+				}
+			};
+			getHotelDataQ();
+		} else {
+			if (localStorage.getItem('pending-data')) {
+				pendingRegisterationData.set(JSON.parse(localStorage.getItem('pending-data') || '{}'));
+			}
+			pendingRegisterationData.subscribe(
+				(value) => (localStorage['pending-data'] = JSON.stringify(value))
+			);
+			isLoading.set(false);
 		}
-		pendingRegisterationData.subscribe(
-			(value) => (localStorage['pending-data'] = JSON.stringify(value))
-		);
-		isLoading.set(false);
 	});
 
 	const publishHotel = async () => {
 		$isLoading = true;
 		await publishHotelMenu({ ...$pendingRegisterationData, author: $user.uid });
+		pendingRegisterationData.set({ ...defaultData });
 		goto('/dashboard');
 	};
 </script>

@@ -6,28 +6,36 @@
 	import TextInput from '$lib/components/primitives/TextInput.svelte';
 	import HeaderRect from '$lib/icons/HeaderRect.svelte';
 	import HeaderRect2 from '$lib/icons/HeaderRect2.svelte';
+	import Logo from '$lib/icons/Logo.svelte';
+	import Pear from '$lib/icons/Pear.svelte';
 	import TempQr from '$lib/icons/TempQr.svelte';
 </script>
 
 <header>
+	<div class="absolute top-2 right-2 md:top-5 md:right-6">
+		<Pear />
+	</div>
+
+	<nav class="flex w-full px-6 items-center gap-3 md:gap-5 py-4 md:py-8 max-w-[1200px] mx-auto">
+		<Logo className="w-8 md:w-10" variant="primary" />
+		<span class="font-semibold text-light-1 md:text-lg"> Menyū </span>
+	</nav>
+
 	<h1
-		class="text-center text-light-2 font-extrabold text-[40px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] lg:w-8/12 max-w-3xl pb-16 w-10/12 mx-auto selection:bg-light-1 selection:bg-opacity-20"
+		class="text-center text-[#ABABAB] font-extrabold text-[46px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] lg:w-8/12 max-w-3xl pt-20 pb-16 px-6 mx-auto selection:bg-light-1 selection:bg-opacity-20"
 	>
 		<span class="mix-blend-color-dodge"> Create a online menu for your </span>
 		<span class="mix-blend-normal text-white "> restaurant </span>
 	</h1>
 
-	<div class="flex flex-col sm:flex-row gap-6 sm:gap-12 text-center justify-center">
-		<CtaButton uppercase>Login</CtaButton>
-		<CtaButton uppercase whiteBg>Sign up</CtaButton>
+	<div class="flex flex-col sm:flex-row gap-6 sm:gap-12 text-center justify-center w-40 sm:w-fit">
+		<a href="/login">
+			<CtaButton uppercase>Login</CtaButton>
+		</a>
+		<a href="/login">
+			<CtaButton uppercase whiteBg>Sign up</CtaButton>
+		</a>
 	</div>
-
-	<Card
-		noBgImages
-		className="!absolute top-[500px] sm:top-auto sm:bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 h-fit backdrop-blur-[44px] py-8 px-10"
-	>
-		<TempQr className="w-36" />
-	</Card>
 
 	<HeaderRect
 		className="absolute right-0 bottom-0 w-24 md:w-32 lg:w-48 xl:w-56 h-fit mix-blend-color-dodge"
@@ -37,11 +45,17 @@
 	/>
 </header>
 
+<Card
+	noBgImages
+	className="w-fit h-fit backdrop-blur-[30px] !py-10 !px-10 mx-auto mt-32 mb-32 sm:py-2 sm:px-10"
+>
+	<TempQr className="w-28 sm:w-36" />
+</Card>
+
 <style lang="postcss">
 	header {
-		background-image: url('https://cdn.raster.app/kitatsu/library-1/46WNodbDbh?ixlib=js-3.6.0&height=3992&width=2246&blur=360&compress=false&shad=6&con=27&gam=-3&fm=webp&s=ce56c801fba8ae40a0d8afd5d18b70ec');
-		background-attachment: fixed;
-		@apply bg-center bg-cover text-light-2 min-h-[500px] h-[500px] sm:min-h-[550px] md:h-[600px] py-32 pb-52 flex flex-col items-center justify-center relative;
+		background-image: url('https://cdn.raster.app/kitatsu/library-1/vQIsc0ug2a?ixlib=js-3.7.0&height=1500&width=3514&compress=false&blur=400&sat=40&s=8139f86cf2d1ea97cdc01aec9821fe0f');
+		@apply bg-center bg-cover md:bg-fixed text-light-2 pb-32 sm:pb-48 flex flex-col items-center justify-center relative;
 		font-family: neue-montreal;
 
 		box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.048), 0px 6.8px 5.3px rgba(0, 0, 0, 0.069),
@@ -50,7 +64,7 @@
 	}
 
 	h1 {
-		@apply leading-[110%] font-extrabold;
-		letter-spacing: -2px;
+		@apply leading-[110%] max-w-[350px] sm:max-w-md md:max-w-[1200px] mx-auto font-extrabold;
+		letter-spacing: -1px;
 	}
 </style>

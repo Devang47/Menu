@@ -57,7 +57,7 @@
 
 <nav>
 	<div class="fixed top-0 left-0 w-full py-4 z-10 backdrop-blur">
-		<div class="max-w-large mx-auto flex items-center justify-between w-10/12">
+		<div class="max-w-large mx-auto flex items-center justify-between px-6">
 			<button on:click={() => (isOpen = true)} class="logo py-4 px-2">
 				<NavIcon />
 			</button>
@@ -91,7 +91,6 @@
 							class={clsx('text-left py-2 px-2 w-full', e === 'Sign out' && 'font-bold')}
 						>
 							{e}
-							{i}
 						</button>
 					{/each}
 				</div>

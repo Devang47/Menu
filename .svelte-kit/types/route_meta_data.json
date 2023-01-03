@@ -1,10 +1,12 @@
 {
 	"/": [],
 	"/components": [],
-	"/login": [],
 	"/dashboard": [],
-	"/routes": [],
+	"/edit": [],
+	"/h": [],
+	"/h/[id]": [],
+	"/login": [],
 	"/register": [],
-	"/register/edit": [],
-	"/edit": []
+	"/m": [],
+	"/m/[id]": []
 }

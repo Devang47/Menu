@@ -6,9 +6,12 @@ import {
 	getDocs,
 	getFirestore,
 	query,
+	QuerySnapshot,
 	setDoc,
-	where
+	where,
+	type DocumentData
 } from 'firebase/firestore';
+import { cardsByUser } from '$stores';
 
 const db = getFirestore();
 
@@ -42,8 +45,32 @@ export const getUserHotels = async (uid: string) => {
 	const q = query(collection(db, 'hotels'), where('author', '==', uid));
 
 	const querySnapshot = await getDocs(q);
+
+	const docs: any[] = [];
+
 	querySnapshot.forEach((doc) => {
-		// doc.data() is never undefined for query doc snapshots
-		console.log(doc.id, ' => ', doc.data());
+		docs.push(doc.data());
 	});
+
+	cardsByUser.set(docs);
+	return;
 };
+
+export const getHotelData = async (slug: string): Promise<DocumentData> =>
+	new Promise((resolve, reject) => {
+		const q = query(collection(db, 'hotels'), where('slug', '==', slug));
+
+		getDocs(q).then((querySnapshot) => {
+			if (querySnapshot.empty) {
+				reject(404);
+			}
+
+			querySnapshot.forEach((doc) => {
+				if (!doc.data()) {
+					reject(404);
+				}
+
+				resolve(doc.data());
+			});
+		});
+	});

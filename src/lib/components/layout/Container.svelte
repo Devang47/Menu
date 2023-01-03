@@ -7,7 +7,7 @@
 </script>
 
 <section class={clsx(sectionClass, centered && 'h-screen w-full flex items-center justify-center')}>
-	<div class={clsx(className, 'w-10/12 max-w-[1200px] py-4 mx-auto')}>
+	<div class={clsx(className, 'w-full px-6 max-w-[450px] py-4 mx-auto')}>
 		<slot />
 	</div>
 </section>
