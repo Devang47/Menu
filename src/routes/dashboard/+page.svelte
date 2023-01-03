@@ -11,7 +11,7 @@
 	import LoadingIcon from '$lib/icons/LoadingIcon.svelte';
 	import OptionsIcon from '$lib/icons/OptionsIcon.svelte';
 	import Qr from '$lib/icons/Qr.svelte';
-	import { cardsByUser, user } from '$stores';
+	import { cardsByUser, isLoading, user } from '$stores';
 	import { getUserHotels } from '$utils/db';
 	import { scale } from 'svelte/transition';
 
@@ -22,6 +22,7 @@
 		(async function () {
 			await getUserHotels($user.uid);
 			areCardsLoading = false;
+			isLoading.set(false);
 		})();
 	}
 </script>
