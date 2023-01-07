@@ -19,7 +19,6 @@ export const signInWithGoogle = async () => {
 	await signInWithPopup(auth, provider)
 		.then((result) => {
 			user.set(result.user);
-			console.log(result.user);
 		})
 		.catch((error) => {
 			addNotification(error.message, true);
@@ -40,7 +39,7 @@ export const signOutUser = async () => {
 
 export const getCurrentUser = () => {
 	onAuthStateChanged(auth, (userData) => {
-		const notProtectedPages = ['/', '/login', '/h/[id]'];
+		const notProtectedPages = ['/login', '/h/[id]'];
 
 		if (!notProtectedPages.includes(get(page).route?.id || '/')) {
 			if (userData) {
@@ -49,6 +48,7 @@ export const getCurrentUser = () => {
 				user.set(userData);
 				isLoading.set(false);
 			} else {
+				if (get(page).route?.id === '/') return;
 				goto('/login');
 			}
 		}

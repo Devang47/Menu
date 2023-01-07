@@ -16,7 +16,6 @@
 	import QrCode from '$lib/components/QRCode.svelte';
 	import { checkIfSlugIsAlreadyTaken, getHotelData, publishHotelMenu } from '$utils/db';
 	import { page } from '$app/stores';
-	import RegisterHeader from '$lib/components/register/RegisterHeader.svelte';
 
 	const defaultData: RegisterationData = {
 		hotel: {
@@ -44,6 +43,7 @@
 	isLoading.set(true);
 
 	let isSlugTaken = false;
+	let isContinueBtnDisabled = false;
 	const pendingRegisterationData = writable<RegisterationData>({ ...defaultData });
 	let step: number = 1;
 
@@ -317,9 +317,11 @@
 						placeholder=""
 						on:change={() => {
 							if ($page.url.searchParams.get('_id')) return;
-							checkIfSlugIsAlreadyTaken($pendingRegisterationData.slug).then(
-								(e) => (isSlugTaken = e)
-							);
+							isContinueBtnDisabled = true;
+							checkIfSlugIsAlreadyTaken($pendingRegisterationData.slug).then((e) => {
+								isSlugTaken = e;
+								if (!e) isContinueBtnDisabled = false;
+							});
 						}}
 						error={isSlugTaken}
 						bind:value={$pendingRegisterationData.slug}
@@ -346,7 +348,7 @@
 					label="Proceed"
 					className="w-32 px-6 mx-auto mt-10"
 					primary
-					disabled={!$pendingRegisterationData.slug.trim()}
+					disabled={!$pendingRegisterationData.slug.trim() || isContinueBtnDisabled}
 				>
 					Proceed <ArrowRight />
 				</Button>

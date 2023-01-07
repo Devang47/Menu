@@ -34,6 +34,7 @@
 				divClassName
 			)}
 			on:change
+			on:keydown
 			maxlength={maxLength}
 			{placeholder}
 			name={id}
@@ -56,6 +57,7 @@
 			<input
 				bind:value
 				on:change
+				on:keydown
 				{id}
 				aria-label={id}
 				title={id || placeholder}

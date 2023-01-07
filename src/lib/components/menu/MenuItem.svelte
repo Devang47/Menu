@@ -1,5 +1,4 @@
 <script lang="ts">
-	export let itemName: string = 'Canai with Veg Curry';
 	export let currency: 'INR' | 'USD' = 'INR';
 
 	export let data: {
@@ -7,7 +6,6 @@
 		description?: string;
 		price: string;
 	};
-	export let price: number | number[] = 123.123;
 </script>
 
 <div class="text-base py-4">
@@ -25,7 +23,7 @@
 	</div>
 
 	{#if data.description}
-		<p class="text-sm text-light-2 mt-2 leading-[160%]">
+		<p class="text-sm text-light-2 mt-2.5 leading-[170%]">
 			{data.description}
 		</p>
 	{/if}

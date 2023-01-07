@@ -33,6 +33,7 @@ export const checkIfSlugIsAlreadyTaken = (slug: string): Promise<boolean> =>
 			getDoc(doc(db, 'hotels', slug)).then((e) => {
 				if (e.exists()) resolve(true);
 
+				console.log('here', e);
 				resolve(false);
 			});
 		} catch (error) {

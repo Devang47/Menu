@@ -7,6 +7,7 @@
 </script>
 
 <button
+	on:click
 	class={clsx(
 		`font-bold py-2 px-3 w-full sm:w-32 text-sm text-center rounded outline outline-[1px] outline-offset-4 outline-light-4 mix-blend-color-dodge font-sans`,
 		className,

@@ -9,6 +9,7 @@
 	import Logo from '$lib/icons/Logo.svelte';
 	import Pear from '$lib/icons/Pear.svelte';
 	import TempQr from '$lib/icons/TempQr.svelte';
+	import { signInWithGoogle } from '$utils/auth';
 </script>
 
 <header>
@@ -29,9 +30,7 @@
 	</h1>
 
 	<div class="flex flex-col sm:flex-row gap-6 sm:gap-12 text-center justify-center w-40 sm:w-fit">
-		<a href="/login">
-			<CtaButton uppercase>Login</CtaButton>
-		</a>
+		<CtaButton on:click={signInWithGoogle} uppercase>Login</CtaButton>
 		<a href="/login">
 			<CtaButton uppercase whiteBg>Sign up</CtaButton>
 		</a>

@@ -7,6 +7,7 @@
 	import MenuIcon1 from '$lib/icons/MenuIcon1.svelte';
 	import MenuIcon2 from '$lib/icons/MenuIcon2.svelte';
 	import { getHotelData } from '$utils/db';
+	import clsx from 'clsx';
 	import { onMount } from 'svelte';
 
 	let hotelData: RegisterationData;
@@ -62,9 +63,9 @@
 		}]} />
     </div> -->
 
-		{#each hotelData.menu as menu}
+		{#each hotelData.menu as menu, i}
 			<div class="mt-4">
-				<h2 class="category-title font-bold font-neue">{menu.category}</h2>
+				<h2 class={clsx("category-title font-bold font-neue", i > 0 && "mt-10")}>{menu.category}</h2>
 				<div class="mt-6">
 					{#each menu.items as menuItem}
 						<MenuItem currency={hotelData.currency} data={menuItem} />
@@ -103,7 +104,7 @@
 	}
 
 	.category-title {
-		@apply relative text-xl w-fit;
+		@apply relative text-2xl w-fit;
 	}
 
 	.category-title::after {
@@ -112,7 +113,7 @@
 		bottom: -4px;
 		left: 0;
 		height: 2.5px;
-		width: 70%;
+		width: 60%;
 		background-color: rgb(150 150 150);
 	}
 </style>
