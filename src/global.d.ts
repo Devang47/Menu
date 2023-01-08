@@ -1,5 +1,5 @@
 interface CustomNotification {
-	data: string;
+	message: string;
 	error: boolean;
 }
 

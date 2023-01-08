@@ -19,18 +19,28 @@
 	<LoadingScreen />
 {/if}
 
+<svelte:head>
+	<meta
+		name="viewport"
+		content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no"
+	/>
+	<meta name="theme-color" content={'#000000'} />
+	<link rel="icon" href="/icons/favicon.png" type="image/png" />
+	<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+</svelte:head>
+
 <SvelteSeo
 	title="Menyú"
-	description="At Menyú you can create a private chat room and share data across multiple devices, the chat room will automatically delete after 15min.."
+	description="Create a online menu for your store."
 	openGraph={{
 		type: 'website',
 		title: 'Menyú',
-		description:
-			'At Menyú you can create a private chat room and share data across multiple devices, the chat room will automatically delete after 15min.',
-		url: 'https://saklani.dev',
+		description: 'Create online menu for your store.',
+		url: 'https://menyu.saklani.dev/',
 		images: [
 			{
-				url: 'https://res.cloudinary.com/dyn3sdtfm/image/upload/v1663470958/og1_l965qv.webp'
+				url: 'https://cdn.raster.app/kitatsu/library-1/u1aTjOKgN7?ixlib=js-3.7.0&s=096a62a63023c43c9cb22d28e11de43d',
+				alt: 'Menyu | Create a online menu for your store.'
 			}
 		]
 	}}
@@ -40,7 +50,8 @@
 		title: 'Devang Saklani | Software Engineer',
 		description:
 			'At Menyú you can create a private chat room and share data across multiple devices, the chat room will automatically delete after 15min.',
-		image: 'https://res.cloudinary.com/dyn3sdtfm/image/upload/v1663470958/og1_l965qv.webp',
+		image:
+			'https://cdn.raster.app/kitatsu/library-1/u1aTjOKgN7?ixlib=js-3.7.0&s=096a62a63023c43c9cb22d28e11de43d',
 		imageAlt: 'Devang Saklani | Software Engineer'
 	}}
 />

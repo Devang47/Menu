@@ -46,7 +46,7 @@
 
 <Card
 	noBgImages
-	className="w-fit h-fit backdrop-blur-[30px] !py-10 !px-10 mx-auto mt-32 mb-32 sm:py-2 sm:px-10"
+	className="w-fit h-fit backdrop-blur-[30px] !py-10 !px-10 mx-auto mt-32 sm:-mt-28 mb-32 sm:py-2 sm:px-10"
 >
 	<TempQr className="w-28 sm:w-36" />
 </Card>

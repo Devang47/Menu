@@ -2,7 +2,7 @@ import { notifications } from '$stores';
 import { get } from 'svelte/store';
 
 export const addNotification = (msg: string, error: boolean) => {
-	notifications.set([...get(notifications), { data: msg, error }]);
+	notifications.set([...get(notifications), { message: msg, error }]);
 
 	setTimeout(() => {
 		get(notifications).pop();

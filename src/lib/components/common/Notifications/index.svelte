@@ -9,7 +9,7 @@
 >
 	<div class="flex w-full flex-col items-center space-y-4 sm:items-end">
 		{#each $notifications as data}
-			<Notification error={data.error} {data} />
+			<Notification {data} />
 		{/each}
 	</div>
 </div>

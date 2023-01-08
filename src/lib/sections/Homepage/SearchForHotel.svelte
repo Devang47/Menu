@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Container from '$lib/components/layout/Container.svelte';
 	import Card from '$lib/components/primitives/Card.svelte';
 	import TextInput from '$lib/components/primitives/TextInput.svelte';

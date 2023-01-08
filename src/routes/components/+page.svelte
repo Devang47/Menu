@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Header from '$lib/components/register/RegisterHeader.svelte';
 	import Navbar from '$lib/components/common/navbar.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';

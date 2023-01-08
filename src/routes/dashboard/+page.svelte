@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { goto } from '$app/navigation';
 	import Heading from '$lib/components/common/Heading.svelte';
 	import LoadingScreenDefault from '$lib/components/common/LoadingScreenDefault.svelte';
