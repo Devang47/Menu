@@ -30,10 +30,10 @@
 	}
 </script>
 
-<diFv class="flex items-center justify-center flex-col gap-2 -mb-2">
+<div class="flex items-center justify-center flex-col gap-2 -mb-2">
 	<div id="qrcode" />
 	<div class="text-sm text-black text-center font-medium">{link}</div>
-</diFv>
+</div>
 
 <style lang="postcss">
 	#qrcode {

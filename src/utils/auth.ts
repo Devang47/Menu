@@ -19,6 +19,7 @@ export const signInWithGoogle = async () => {
 	await signInWithPopup(auth, provider)
 		.then((result) => {
 			user.set(result.user);
+			goto('/dashboard');
 		})
 		.catch((error) => {
 			addNotification(error.message, true);
