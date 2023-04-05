@@ -6,8 +6,8 @@
 	export let centered: boolean = false;
 </script>
 
-<section class={clsx(sectionClass, centered && 'h-screen w-full flex items-center justify-center')}>
-	<div class={clsx(className, 'w-full px-6 max-w-[450px] py-4 mx-auto')}>
+<section class={clsx(sectionClass, centered && 'flex h-screen w-full items-center justify-center')}>
+	<div class={clsx(className, 'mx-auto w-full max-w-[450px] px-6 py-4')}>
 		<slot />
 	</div>
 </section>

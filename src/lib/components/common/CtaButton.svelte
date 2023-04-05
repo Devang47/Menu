@@ -9,10 +9,10 @@
 <button
 	on:click
 	class={clsx(
-		`font-bold py-2 px-3 w-full sm:w-32 text-sm text-center rounded outline outline-[1px] outline-offset-4 outline-light-4 mix-blend-color-dodge font-sans`,
+		`w-full rounded py-2 px-3 text-center font-sans text-sm font-bold mix-blend-color-dodge outline outline-[1px] outline-offset-4 outline-light-4 sm:w-32`,
 		className,
 		uppercase && 'uppercase',
-		whiteBg ? 'bg-white text-dark-1' : 'bg-light-4 text-light-1 hover:bg-light-3 duration-100'
+		whiteBg ? 'bg-white text-dark-1' : 'bg-light-4 text-light-1 duration-100 hover:bg-light-3'
 	)}
 >
 	<slot />

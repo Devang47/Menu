@@ -21,7 +21,6 @@
 		const getHotelDataQ = async () => {
 			try {
 				let data = await getHotelData(id);
-				console.log({ data });
 
 				hotelData = data as RegisterationData;
 				isLoading = false;
@@ -42,9 +41,9 @@
 	<Navbar />
 
 	<Container className="mt-32">
-		<div class="relative text-center font-neue h-80">
+		<div class="relative h-80 text-center font-neue">
 			<h1 class="text-[32px] font-bold">{hotelData.hotel.name}</h1>
-			<h2 class="text-light-2 font-medium mt-3 max-w-xs mx-auto">{hotelData.hotel.tagline}</h2>
+			<h2 class="mx-auto mt-3 max-w-xs font-medium text-light-2">{hotelData.hotel.tagline}</h2>
 			<!-- <h3 class="text-light-2 font-medium mt-4">Restaurant menu</h3> -->
 
 			<div class="absolute top-48 left-0">
@@ -65,7 +64,9 @@
 
 		{#each hotelData.menu as menu, i}
 			<div class="mt-4">
-				<h2 class={clsx("category-title font-bold font-neue", i > 0 && "mt-10")}>{menu.category}</h2>
+				<h2 class={clsx('category-title font-neue font-bold', i > 0 && 'mt-10')}>
+					{menu.category}
+				</h2>
 				<div class="mt-6">
 					{#each menu.items as menuItem}
 						<MenuItem currency={hotelData.currency} data={menuItem} />
@@ -78,7 +79,7 @@
 
 <style lang="postcss">
 	h1 {
-		@apply relative w-fit mx-auto;
+		@apply relative mx-auto w-fit;
 	}
 
 	h1::after {
@@ -104,7 +105,7 @@
 	}
 
 	.category-title {
-		@apply relative text-2xl w-fit;
+		@apply relative w-fit text-2xl;
 	}
 
 	.category-title::after {

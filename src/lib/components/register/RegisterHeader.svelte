@@ -7,8 +7,8 @@
 	export let className: string = '';
 </script>
 
-<header class={clsx(className, 'flex items-center justify-between w-full')}>
+<header class={clsx(className, 'flex w-full items-center justify-between')}>
 	<Heading withUnderline type="h1" text="Register" />
 
-	<div class="progress text-sm text-light-3 font-bold">{step}/{totalSteps}</div>
+	<div class="progress text-sm font-bold text-light-3">{step}/{totalSteps}</div>
 </header>

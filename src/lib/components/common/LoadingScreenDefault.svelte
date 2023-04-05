@@ -5,9 +5,9 @@
 
 <section
 	transition:fade={{ duration: 0.3 }}
-	class="fixed inset-0 w-full h-full bg-dark-1 flex items-center justify-center z-20"
+	class="fixed inset-0 z-20 flex h-full w-full items-center justify-center bg-dark-1"
 >
-	<div class="container bg-dark-1 p-3.5 w-fit rounded">
+	<div class="container w-fit rounded bg-dark-1 p-3.5">
 		<LoadingIcon />
 	</div>
 </section>

@@ -11,12 +11,12 @@
 
 <style lang="postcss">
 	h1 {
-		@apply text-center text-5xl md:text-7xl font-bold pt-40 pb-10;
+		@apply pt-40 pb-10 text-center text-5xl font-bold md:text-7xl;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
 			'Open Sans', 'Helvetica Neue', sans-serif;
 	}
 
 	a {
-		@apply underline w-fit block mx-auto text-center;
+		@apply mx-auto block w-fit text-center underline;
 	}
 </style>

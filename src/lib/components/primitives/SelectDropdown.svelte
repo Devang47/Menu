@@ -10,11 +10,11 @@
 </script>
 
 <div class="dropdown-menu">
-	<div class="text-[12px] font-semibold text-light-2 mb-1.5">{label}</div>
+	<div class="mb-1.5 text-[12px] font-semibold text-light-2">{label}</div>
 
 	<select
 		name="select-menu"
-		class="py-2.5 px-5 border border-light-3 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14"
+		class="relative appearance-none rounded border border-light-3 bg-dark-1 py-2.5 px-5 !pr-14 outline-none focus:border-highlight"
 		{id}
 		title={id}
 		required

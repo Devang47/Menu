@@ -7,11 +7,11 @@
 	import CtaButton from './CtaButton.svelte';
 </script>
 
-<footer class="flex items-center justify-between py-8 mt-32 px-6 max-w-[1200px] mx-auto">
+<footer class="mx-auto mt-32 flex max-w-[1200px] items-center justify-between py-8 px-6">
 	<a href="/">
 		<div class="flex items-center justify-center gap-4">
 			<Logo className="w-10 md:w-12" />
-			<h2 class="font-bold hidden md:block text-lg">Menyū</h2>
+			<h2 class="hidden text-lg font-bold md:block">Menyū</h2>
 		</div>
 	</a>
 

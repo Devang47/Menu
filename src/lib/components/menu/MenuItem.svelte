@@ -8,11 +8,11 @@
 	};
 </script>
 
-<div class="text-base py-4">
-	<div class="text-gray-100 flex items-center justify-between">
+<div class="py-4 text-base">
+	<div class="flex items-center justify-between text-gray-100">
 		<h2 class="font-semibold">{data.name}</h2>
 
-		<div class="italic text-sm font-medium whitespace-nowrap">
+		<div class="whitespace-nowrap text-sm font-medium italic">
 			{#if currency === 'INR'}
 				₹
 			{:else}
@@ -23,7 +23,7 @@
 	</div>
 
 	{#if data.description}
-		<p class="text-sm text-light-2 mt-2.5 leading-[170%]">
+		<p class="mt-2.5 text-sm leading-[170%] text-light-2">
 			{data.description}
 		</p>
 	{/if}

@@ -10,7 +10,7 @@
 	import Logo from '$lib/icons/Logo.svelte';
 </script>
 
-<div class="flex items-start justify-start gap-10 py-10 flex-col px-10">
+<div class="flex flex-col items-start justify-start gap-10 py-10 px-10">
 	<Navbar />
 	<Header className="mt-12" />
 

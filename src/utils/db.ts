@@ -1,12 +1,11 @@
-import { app } from './firebase';
 import {
 	collection,
+	deleteDoc,
 	doc,
 	getDoc,
 	getDocs,
 	getFirestore,
 	query,
-	QuerySnapshot,
 	setDoc,
 	where,
 	type DocumentData
@@ -32,8 +31,6 @@ export const checkIfSlugIsAlreadyTaken = (slug: string): Promise<boolean> =>
 		try {
 			getDoc(doc(db, 'hotels', slug)).then((e) => {
 				if (e.exists()) resolve(true);
-
-				console.log('here', e);
 				resolve(false);
 			});
 		} catch (error) {
@@ -75,3 +72,13 @@ export const getHotelData = async (slug: string): Promise<DocumentData> =>
 			});
 		});
 	});
+
+export const deleteHotelMenu = async (slug: string) => {
+	try {
+		await deleteDoc(doc(db, 'hotels', slug));
+
+		return true;
+	} catch (error) {
+		console.log(error);
+	}
+};

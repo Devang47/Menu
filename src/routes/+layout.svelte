@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SvelteSeo from 'svelte-seo';
-	import LoadingScreen from '$lib/components/common/LoadingScreenDefault.svelte';
 	import Footer from '$lib/components/common/Footer.svelte';
 	import Notifications from '$lib/components/common/Notifications/index.svelte';
-	import { isLoading } from '$stores';
 	import { getCurrentUser } from '$utils/auth';
 	import '$styles/global.scss';
 
@@ -14,10 +12,6 @@
 </script>
 
 <Notifications />
-
-{#if $isLoading}
-	<LoadingScreen />
-{/if}
 
 <svelte:head>
 	<meta

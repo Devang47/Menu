@@ -12,7 +12,7 @@
 		<div class="flex flex-col items-center justify-center">
 			<Logo />
 
-			<h1 class="text-center text-[28px] mt-8 font-ne">
+			<h1 class="font-ne mt-8 text-center text-[28px]">
 				Sign in to <span class="font-bold">Menyū</span>
 			</h1>
 

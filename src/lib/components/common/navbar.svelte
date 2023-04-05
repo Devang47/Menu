@@ -17,10 +17,10 @@
 				goto('/');
 				break;
 			case 'Contact':
-				goto('mailto:devangsaklani@gmail.com');
+				window.open('mailto:devangsaklani@gmail.com', '_blank');
 				break;
 			case 'Report bug':
-				goto('https://github.com/Devang47/Ffmpeg-nextjs/issues');
+				window.open('https://github.com/Devang47/Ffmpeg-nextjs/issues', '_blank');
 				break;
 			case 'Sign out':
 				signOutUser();
@@ -56,8 +56,8 @@
 </script>
 
 <nav>
-	<div class="fixed top-0 left-0 w-full py-4 z-10 backdrop-blur">
-		<div class="max-w-large mx-auto flex items-center justify-between px-6">
+	<div class="fixed top-0 left-0 z-10 w-full py-4 backdrop-blur">
+		<div class="mx-auto flex max-w-large items-center justify-between px-6">
 			<button on:click={() => (isOpen = true)} class="logo py-4 px-2">
 				<NavIcon />
 			</button>
@@ -72,9 +72,9 @@
 	{#if isOpen}
 		<div
 			transition:fade={{ duration: 300, easing: (n) => n * n }}
-			class="fixed top-0 left-0 bg-dark-2/80 text-center w-full h-screen z-20 backdrop-blur"
+			class="fixed top-0 left-0 z-20 h-screen w-full bg-dark-2/80 text-center backdrop-blur"
 		>
-			<div class="max-w-large mx-auto">
+			<div class="mx-auto max-w-large">
 				<div class="flex items-center justify-between px-4 py-3">
 					<Logo className="ml-2" />
 
@@ -83,12 +83,12 @@
 					</button>
 				</div>
 
-				<div class="flex flex-col items-start justify-center mt-32 text-3xl px-6 gap-8">
+				<div class="mt-32 flex flex-col items-start justify-center gap-8 px-6 text-3xl">
 					{#each new Array('Home', 'Contact', 'Report bug', !!$user ? 'Sign out' : 'Sign in') as e, i}
 						<button
 							in:fly={{ y: 20, easing: (x) => x * x, delay: i * 100 + 200, duration: 150 }}
 							on:click={() => handleButtonClick(e)}
-							class={clsx('text-left py-2 px-2 w-full', e === 'Sign out' && 'font-bold')}
+							class={clsx('w-full py-2 px-2 text-left', e === 'Sign out' && 'font-bold')}
 						>
 							{e}
 						</button>

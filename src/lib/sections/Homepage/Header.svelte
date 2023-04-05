@@ -17,19 +17,19 @@
 		<Pear />
 	</div>
 
-	<nav class="flex w-full px-6 items-center gap-3 md:gap-5 py-4 md:py-8 max-w-[1200px] mx-auto">
+	<nav class="mx-auto flex w-full max-w-[1200px] items-center gap-3 px-6 py-4 md:gap-5 md:py-8">
 		<Logo className="w-8 md:w-10" variant="primary" />
 		<span class="font-semibold text-light-1 md:text-lg"> Menyū </span>
 	</nav>
 
 	<h1
-		class="text-center text-[#ABABAB] font-extrabold text-[46px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] lg:w-8/12 max-w-3xl pt-20 pb-16 px-6 mx-auto selection:bg-light-1 selection:bg-opacity-20"
+		class="mx-auto max-w-3xl px-6 pt-20 pb-16 text-center text-[46px] font-extrabold text-[#ABABAB] selection:bg-light-1 selection:bg-opacity-20 sm:text-[60px] md:text-[70px] lg:w-8/12 lg:text-[76px] xl:text-[85px]"
 	>
 		<span class="mix-blend-color-dodge"> Create a online menu for your </span>
-		<span class="mix-blend-normal text-white "> restaurant </span>
+		<span class="text-white mix-blend-normal "> restaurant </span>
 	</h1>
 
-	<div class="flex flex-col sm:flex-row gap-6 sm:gap-12 text-center justify-center w-40 sm:w-fit">
+	<div class="flex w-40 flex-col justify-center gap-6 text-center sm:w-fit sm:flex-row sm:gap-12">
 		<CtaButton on:click={signInWithGoogle} uppercase>Login</CtaButton>
 		<a href="/login">
 			<CtaButton uppercase whiteBg>Sign up</CtaButton>
@@ -54,7 +54,7 @@
 <style lang="postcss">
 	header {
 		background-image: url('https://cdn.raster.app/kitatsu/library-1/vQIsc0ug2a?ixlib=js-3.7.0&height=1500&width=3514&compress=false&blur=400&sat=40&s=8139f86cf2d1ea97cdc01aec9821fe0f');
-		@apply bg-center bg-cover md:bg-fixed text-light-2 pb-32 sm:pb-48 flex flex-col items-center justify-center relative;
+		@apply relative flex flex-col items-center justify-center bg-cover bg-center pb-32 text-light-2 sm:pb-48 md:bg-fixed;
 		font-family: neue-montreal;
 
 		box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.048), 0px 6.8px 5.3px rgba(0, 0, 0, 0.069),
@@ -63,7 +63,7 @@
 	}
 
 	h1 {
-		@apply leading-[110%] max-w-[350px] sm:max-w-md md:max-w-[1200px] mx-auto font-extrabold;
+		@apply mx-auto max-w-[350px] font-extrabold leading-[110%] sm:max-w-md md:max-w-[1200px];
 		letter-spacing: -1px;
 	}
 </style>

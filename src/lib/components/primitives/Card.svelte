@@ -11,7 +11,7 @@
 
 <div
 	class={clsx(
-		'bg-white bg-opacity-[1.5%] border border-white/10 rounded-[12px] py-4 px-6 relative overflow-hidden',
+		'relative overflow-hidden rounded-[12px] border border-white/10 bg-white bg-opacity-[1.5%] py-4 px-6',
 		className
 	)}
 >
@@ -31,7 +31,9 @@
 		<Circle1
 			className={clsx(
 				'absolute z-[-1]',
-				large ? 'bottom-[-60px] left-[20%] w-[130px] md:w-[150px]' : 'bottom-[-50px] left-[-10px] w-[130px]'
+				large
+					? 'bottom-[-60px] left-[20%] w-[130px] md:w-[150px]'
+					: 'bottom-[-50px] left-[-10px] w-[130px]'
 			)}
 		/>
 	{/if}

@@ -9,7 +9,7 @@
 		large
 		className="py-20 pb-24 text-center flex items-center justify-center flex-col gap-10 w-full"
 	>
-		<h1 class="text-[28px] sm:text-4xl font-bold font-neue">Search for a hotel</h1>
+		<h1 class="font-neue text-[28px] font-bold sm:text-4xl">Search for a hotel</h1>
 
 		<TextInput divClassName="!max-w-[25rem] mt-4 mx-auto" />
 	</Card>

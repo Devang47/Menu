@@ -7,6 +7,6 @@
 	export let type: 'h1' | 'h2' | 'h3' | 'h4' = 'h1';
 </script>
 
-<div class={clsx('text-light-1 font-bold text-2xl', withUnderline && 'half-underline', className)}>
+<div class={clsx('text-2xl font-bold text-light-1', withUnderline && 'half-underline', className)}>
 	{@html `<${type}> ${text} </${type}>`}
 </div>

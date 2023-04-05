@@ -7,3 +7,9 @@ declare namespace App {
 	// interface PageData {}
 	// interface Platform {}
 }
+
+declare namespace svelte.JSX {
+	interface HTMLAttributes<T> {
+		onclick_outside?: (event: CustomEvent<number> & { target: EventTarget & T }) => any;
+	}
+}
