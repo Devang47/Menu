@@ -15,11 +15,21 @@
 		</div>
 	</a>
 
-	<div class="flex items-center justify-center gap-6 md:gap-8">
-		<a href="https://github.com/Devang47/Menyu" target="_blank" rel="noopener noreferrer">
+	<div class="flex items-center justify-center gap-4 md:gap-8">
+		<a
+			href="https://github.com/Devang47/Menyu"
+			class="rounded p-1"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<GithubIcon className="w-5 md:w-6" />
 		</a>
-		<a href="https://twitter.com/DevangSaklani" target="_blank" rel="noopener noreferrer">
+		<a
+			href="https://twitter.com/DevangSaklani"
+			class="rounded p-1"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<TwitterIcon className="w-5 md:w-6" />
 		</a>
 

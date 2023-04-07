@@ -14,7 +14,7 @@
 
 	<select
 		name="select-menu"
-		class="relative appearance-none rounded border border-light-3 bg-dark-1 py-2.5 px-5 !pr-14 outline-none focus:border-highlight"
+		class="relative appearance-none rounded border border-light-3 bg-light-1/10 py-2.5 px-5 !pr-14 outline-none focus:border-highlight"
 		{id}
 		title={id}
 		required

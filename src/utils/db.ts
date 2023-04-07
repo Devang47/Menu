@@ -11,6 +11,8 @@ import {
 	type DocumentData
 } from 'firebase/firestore';
 import { cardsByUser } from '$stores';
+import { page } from '$app/stores';
+import { get } from 'svelte/store';
 
 const db = getFirestore();
 
@@ -29,6 +31,9 @@ export const publishHotelMenu = async (data: RegisterationData) => {
 export const checkIfSlugIsAlreadyTaken = (slug: string): Promise<boolean> =>
 	new Promise((resolve, reject) => {
 		try {
+			const id = get(page).url.searchParams.get('_id');
+			if (id && id === slug) resolve(false);
+
 			getDoc(doc(db, 'hotels', slug)).then((e) => {
 				if (e.exists()) resolve(true);
 				resolve(false);

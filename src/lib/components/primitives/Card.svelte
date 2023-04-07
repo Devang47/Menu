@@ -11,7 +11,7 @@
 
 <div
 	class={clsx(
-		'relative overflow-hidden rounded-[12px] border border-white/10 bg-white bg-opacity-[1.5%] py-4 px-6',
+		'relative overflow-hidden rounded-[12px] border border-white/10 bg-black bg-opacity-[20%] py-4 px-6',
 		className
 	)}
 >

@@ -16,6 +16,8 @@
 	import QrCode from '$lib/components/QRCode.svelte';
 	import { checkIfSlugIsAlreadyTaken, getHotelData, publishHotelMenu } from '$utils/db';
 	import { page } from '$app/stores';
+	import { slide } from 'svelte/transition';
+	import DeleteIcon from '$lib/icons/DeleteIcon.svelte';
 
 	const defaultData: RegisterationData = {
 		hotel: {
@@ -48,7 +50,7 @@
 	let step: number = 1;
 	let isFormSubmitted = false;
 
-	onMount(() => {
+	onMount(async () => {
 		const id = $page.url.searchParams.get('_id');
 
 		window.onbeforeunload = () => {
@@ -66,19 +68,19 @@
 		validateSlug();
 
 		if (id) {
-			const getHotelDataQ = async () => {
-				try {
-					let data = await getHotelData(id);
-					isLoading.set(false);
-					pendingRegisterationData.set(data as RegisterationData);
-				} catch (e) {
-					goto('/register', { replaceState: true });
-				}
-			};
-			getHotelDataQ();
+			try {
+				let data = await getHotelData(id);
+				pendingRegisterationData.set(data as RegisterationData);
+				validateSlug();
+
+				isLoading.set(false);
+			} catch (e) {
+				goto('/register', { replaceState: true });
+			}
 		} else {
 			if (localStorage.getItem('pending-data')) {
 				pendingRegisterationData.set(JSON.parse(localStorage.getItem('pending-data') || '{}'));
+				validateSlug();
 			}
 			pendingRegisterationData.subscribe(
 				(value) => (localStorage['pending-data'] = JSON.stringify(value))
@@ -150,13 +152,13 @@
 							validateSlug();
 						}}
 						label="Registered hotel name:"
-						placeholder="hotel name here ..."
+						placeholder="Hotel name here ..."
 					/>
 					<TextInput
 						required
 						bind:value={$pendingRegisterationData.hotel.tagline}
 						label="Hotel tagline:"
-						placeholder="tagline here ..."
+						placeholder="Tagline here ..."
 					/>
 					<TextInput
 						required
@@ -198,7 +200,9 @@
 								console.log(result);
 								localStorage.setItem('pending-data', '');
 								pendingRegisterationData.set(defaultData);
-							}}>Clear data</Button
+							}}
+						>
+							<DeleteIcon /> Clear</Button
 						>
 					</div>
 				</div>
@@ -230,7 +234,7 @@
 
 						<div class="mt-1 grid">
 							{#each $pendingRegisterationData.menu as MenuCategory, categoryId}
-								<div class="ml-4 border-l border-light-4/40 pl-5">
+								<div class="ml-4 border-l border-light-2/40 pl-5">
 									<div class="relative {categoryId !== 0 && 'mt-8'}">
 										<div class="absolute -left-5 top-1/2 h-px w-5 -translate-y-1/2 bg-light-4/40" />
 
@@ -247,18 +251,17 @@
 												pendingRegisterationData.set($pendingRegisterationData);
 											}}
 											on:keypress
-											class="absolute -top-2 -right-2 rounded border border-gray-600 bg-dark-focus p-1.5"
+											class="absolute -top-2 -right-2 rounded border border-white/50 bg-dark-1 p-1.5"
 										>
-											<CrossIcon className="w-2 h-2 !stroke-light-2" />
+											<CrossIcon className="w-2 h-2 !stroke-white" />
 										</button>
 									</div>
 
-									<div class="ml-4 grid gap-6 border-l border-light-4/40 pl-5 pt-6">
+									<div class="ml-4 grid gap-6 border-l border-light-2/40 pl-5 pt-6">
 										{#each MenuCategory.items as item, itemId}
 											<div class="">
-												<!-- transition:slide={{ duration: 200 }} -->
 												<div
-													class="relative grid gap-4 rounded-md border border-dashed border-light-4/50 py-4 px-4"
+													class="relative grid gap-4 rounded-md border border-dashed border-light-2/50 py-4 px-4"
 												>
 													<div
 														class="absolute -left-5 top-5 h-px w-5 -translate-y-1/2 bg-light-4/40"
@@ -291,9 +294,9 @@
 															pendingRegisterationData.set($pendingRegisterationData);
 														}}
 														on:keypress
-														class="absolute -top-2 -right-2 rounded border border-gray-600 bg-dark-focus p-1.5"
+														class="absolute -top-2 -right-2 rounded border border-white/50 bg-dark-1 p-1.5"
 													>
-														<CrossIcon className="w-2 h-2 !stroke-light-2" />
+														<CrossIcon className="w-2 h-2 !stroke-white" />
 													</button>
 												</div>
 
@@ -399,7 +402,6 @@
 							trailingAddon="m.saklani.dev/"
 							placeholder=""
 							on:keyup={() => {
-								if ($page.url.searchParams.get('_id')) return;
 								isContinueBtnDisabled = true;
 								validateSlug();
 							}}

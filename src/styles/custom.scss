@@ -14,16 +14,17 @@
 	}
 }
 
-.custom-border {
+.custom-border, button , a{
 	@apply outline-none;
 	&:focus {
-		box-shadow: 0 0 0 2.5px #121212, 0 0 0 3.5px #fff3;
+		// box-shadow: 0 0 0 2.5px #000000af, 0 0 0 3.5px #e16a2788;
+		@apply outline outline-2 border-white/40 outline-white/50 outline-offset-2;
 	}
 }
 .custom-border.primary {
-	box-shadow: 0 0 0 2.5px #121212, 0 0 0 3.5px #e16a2788;
+		@apply outline outline-1 border-white/40 outline-white/50 outline-offset-2;
 	&:focus {
-		box-shadow: 0 0 0 2.5px #121212, 0 0 0 4.5px #e16a2788;
+		@apply outline outline-2 border-white/40 outline-white/50 outline-offset-2;
 	}
 }
 

@@ -7,7 +7,7 @@
 	export let label: string = '';
 	export let isTextarea: boolean = false;
 	export let error: boolean = false;
-	export let maxLength: number = 100;
+	export let maxLength: number | null = null;
 	export let id: string = '';
 	export let value: string = '';
 	export let type: string = 'text';
@@ -30,7 +30,7 @@
 		<textarea
 			bind:value
 			class={clsx(
-				'max-h-[400px] min-h-[50px] w-full resize-y rounded border border-light-4 bg-dark-1 py-2.5 px-5 text-base text-white placeholder-light-4 outline-none duration-75 focus:border-highlight',
+				'max-h-[400px] min-h-[50px] w-full resize-y rounded border border-light-4 bg-light-1/10 py-2.5 px-5 text-base text-white placeholder-light-1/80 outline-none duration-75 focus:border-highlight',
 				className,
 				divClassName
 			)}
@@ -49,7 +49,7 @@
 	{:else}
 		<div
 			class={clsx(
-				'flex w-full items-center justify-start overflow-hidden rounded border border-light-4 bg-dark-1 text-base text-white placeholder-light-4 outline-none duration-75 focus-within:border-highlight',
+				'flex w-full items-center justify-start overflow-hidden rounded border border-light-4 bg-light-1/10 text-base text-white placeholder-light-1/80 outline-none duration-75 focus-within:border-highlight',
 				divClassName,
 				error && '!border-red-500'
 			)}

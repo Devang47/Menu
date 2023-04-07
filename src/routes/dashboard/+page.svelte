@@ -10,7 +10,7 @@
 	import LoadingIcon from '$lib/icons/LoadingIcon.svelte';
 	import { cardsByUser, isLoading, user } from '$stores';
 	import { getUserHotels } from '$utils/db';
-	import { scale } from 'svelte/transition';
+	import { fade, scale } from 'svelte/transition';
 	import MenuCard from './MenuCard.svelte';
 
 	let areCardsLoading = true;
@@ -40,13 +40,13 @@
 
 		<Card
 			noBgImages
-			className="rounded md:rounded-lg mt-24 px-4 md:px-5 py-6 md:py-4 border-[#9b9b9b]/10 max-w-sm mx-auto"
+			className="rounded md:rounded-lg mt-24 px-4 md:px-5 py-6 md:py-4 border-white/10 max-w-sm mx-auto"
 		>
-			<Heading type="h2" text="Manage cards" className="!text-sm !text-light-2 !font-medium" />
+			<Heading type="h2" text="Manage cards" className="!text-sm !text-light-1/80 !font-medium" />
 
 			{#if areCardsLoading}
 				<div class="relative mt-4 grid h-[250px] gap-3 overflow-y-scroll pb-20">
-					<div class="mx-auto mt-24 h-fit rounded-md bg-white/5 py-3.5 px-4">
+					<div class="mx-auto mt-24 h-fit rounded-md bg-white/10 py-3.5 px-4">
 						<LoadingIcon />
 					</div>
 				</div>
@@ -72,12 +72,15 @@
 {#if qrCodeViewerSlug}
 	{#key qrCodeViewerSlug}
 		<div
-			transition:scale={{ start: 0.9, opacity: 0, duration: 200 }}
-			class="fixed inset-0 flex h-full w-full items-center justify-center bg-dark-2/80 backdrop-blur"
+			transition:fade={{ duration: 200 }}
+			class="fixed inset-0 flex h-full w-full items-center justify-center bg-dark-2/60 backdrop-blur"
 			on:click|self={() => (qrCodeViewerSlug = '')}
 			on:keypress|self={() => (qrCodeViewerSlug = '')}
 		>
-			<div class="rounded-md bg-white px-8 py-8">
+			<div
+				transition:scale={{ start: 0.8, opacity: 0, duration: 200 }}
+				class="rounded-md bg-white px-8 py-8"
+			>
 				<QrCode squareSize={200} bind:codeValue={qrCodeViewerSlug} />
 			</div>
 		</div>

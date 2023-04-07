@@ -9,6 +9,8 @@
 	import clsx from 'clsx';
 	import { createEventDispatcher } from 'svelte';
 	import { isLoading } from '$stores';
+	import DeleteIcon from '$lib/icons/DeleteIcon.svelte';
+	import EditIcon from '$lib/icons/EditIcon.svelte';
 
 	let modalOpen = false;
 	let disabled = false;
@@ -30,44 +32,63 @@
 </script>
 
 <div
-	class="flex h-fit items-center justify-between gap-4 rounded-md border border-light-4/40 bg-[#191919]/60 py-3 pl-4 pr-2 text-sm"
+	class="flex h-fit items-center justify-between gap-4 rounded-md border border-light-4/50 bg-white/10 py-2 pl-4 pr-2 text-sm"
 >
 	<div class="overflow-hidden text-ellipsis whitespace-nowrap font-medium text-light-1">
 		{data.hotel.name}
 	</div>
 
-	<div class="relative flex items-center justify-center gap-2 text-[#969696]">
+	<div class="relative flex items-center justify-center gap-2 text-[#cbcbcb]">
 		<button
 			{disabled}
-			class="px-1 hover:text-[#dddddd]"
+			class="custom-border rounded p-1 hover:text-[#dddddd]"
 			on:click={() => window.open(`/h/${data.slug}`, '_blank')}
 		>
 			<ExternalLink />
 		</button>
 		<button
 			{disabled}
-			class="px-1.5 hover:text-[#dddddd]"
+			class="custom-border rounded p-1.5 hover:text-[#dddddd]"
 			on:click={() => (qrCodeViewerSlug = data.slug)}
 		>
 			<Qr />
 		</button>
 
-		<button {disabled} class="px-1.5 hover:text-[#dddddd]" on:click={() => (modalOpen = true)}>
+		<button
+			{disabled}
+			class="custom-border rounded p-1.5 hover:text-[#dddddd]"
+			on:click={() => (modalOpen = true)}
+		>
 			<OptionsIcon />
 		</button>
 
 		{#if modalOpen}
 			<div
 				transition:fly={{ y: -10, opacity: 0, duration: 200 }}
-				class="absolute top-7 right-0 z-10 w-20 overflow-hidden rounded-md border border-light-4/20 bg-dark-1 shadow-lg"
+				class="absolute top-7 right-0 z-10 w-[120px] rounded-md border border-light-4/20 bg-white/10 py-1 text-sm shadow-lg backdrop-blur-lg"
 				use:clickOutside
 				on:click_outside={() => (modalOpen = false)}
 			>
 				<button
 					{disabled}
-					on:click={deleteCard}
-					class={clsx('w-full bg-red-600 px-3 py-2 text-sm text-white/80 disabled:opacity-50')}
+					on:click={() => {
+						goto('/register?_id=' + data.slug);
+					}}
+					class={clsx(
+						'flex w-full items-center justify-start gap-2 px-4 py-2 text-white outline-2 outline-offset-2 hover:bg-white/20 disabled:opacity-50'
+					)}
 				>
+					<EditIcon />
+					Edit
+				</button>
+				<button
+					{disabled}
+					on:click={deleteCard}
+					class={clsx(
+						'flex w-full items-center justify-start gap-2 px-4 py-2 text-red-300 outline-2 outline-offset-2 hover:bg-red-300/10 disabled:opacity-50'
+					)}
+				>
+					<DeleteIcon />
 					Delete
 				</button>
 			</div>

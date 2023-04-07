@@ -56,7 +56,7 @@
 </script>
 
 <nav>
-	<div class="fixed top-0 left-0 z-10 w-full py-4 backdrop-blur">
+	<div class="fixed top-0 left-0 z-10 w-full py-4 backdrop-blur bg-black/10">
 		<div class="mx-auto flex max-w-large items-center justify-between px-6">
 			<button on:click={() => (isOpen = true)} class="logo py-4 px-2">
 				<NavIcon />
