@@ -3,3 +3,9 @@
 </script>
 
 <Homepage />
+
+<style lang="postcss">
+	:global(html) {
+		background-image: none;
+	}
+</style>

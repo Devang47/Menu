@@ -4,4 +4,4 @@
 </script>
 
 <Header />
-<SearchForHotel />
+<!-- <SearchForHotel /> -->

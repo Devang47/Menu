@@ -7,7 +7,7 @@
 <Container className="!max-w-[1200px]">
 	<Card
 		large
-		className="py-20 pb-24 text-center flex items-center justify-center flex-col gap-10 w-full"
+		className="!py-20 pb-24 text-center flex items-center justify-center flex-col gap-10 w-full"
 	>
 		<h1 class="font-neue text-[28px] font-bold sm:text-4xl">Search for a hotel</h1>
 

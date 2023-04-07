@@ -1,14 +1,13 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import CtaButton from '$lib/components/common/CtaButton.svelte';
-	import Button from '$lib/components/primitives/Button.svelte';
 	import Card from '$lib/components/primitives/Card.svelte';
-	import SelectDropdown from '$lib/components/primitives/SelectDropdown.svelte';
-	import TextInput from '$lib/components/primitives/TextInput.svelte';
 	import HeaderRect from '$lib/icons/HeaderRect.svelte';
 	import HeaderRect2 from '$lib/icons/HeaderRect2.svelte';
 	import Logo from '$lib/icons/Logo.svelte';
 	import Pear from '$lib/icons/Pear.svelte';
 	import TempQr from '$lib/icons/TempQr.svelte';
+	import { user } from '$stores';
 	import { signInWithGoogle } from '$utils/auth';
 </script>
 
@@ -26,14 +25,23 @@
 		class="mx-auto max-w-3xl px-6 pt-20 pb-16 text-center text-[46px] font-extrabold text-[#ABABAB] selection:bg-light-1 selection:bg-opacity-20 sm:text-[60px] md:text-[70px] lg:w-8/12 lg:text-[76px] xl:text-[85px]"
 	>
 		<span class="mix-blend-color-dodge"> Create a online menu for your </span>
-		<span class="text-white mix-blend-normal "> restaurant </span>
+		<span class="text-white mix-blend-normal"> restaurant </span>
 	</h1>
 
 	<div class="flex w-40 flex-col justify-center gap-6 text-center sm:w-fit sm:flex-row sm:gap-12">
-		<CtaButton on:click={signInWithGoogle} uppercase>Login</CtaButton>
-		<a href="/login">
-			<CtaButton uppercase whiteBg>Sign up</CtaButton>
-		</a>
+		{#if $user}
+			<CtaButton
+				on:click={() => goto('/dashboard')}
+				uppercase
+				whiteBg
+				className="whitespace-nowrap !max-w-none !w-fit">Dashboard -></CtaButton
+			>
+		{:else}
+			<CtaButton on:click={signInWithGoogle} uppercase>Login</CtaButton>
+			<a href="/login">
+				<CtaButton uppercase whiteBg>Sign up</CtaButton>
+			</a>
+		{/if}
 	</div>
 
 	<HeaderRect

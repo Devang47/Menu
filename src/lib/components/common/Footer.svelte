@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import GithubIcon from '$lib/icons/GithubIcon.svelte';
 	import Logo from '$lib/icons/Logo.svelte';
 	import TwitterIcon from '$lib/icons/TwitterIcon.svelte';
@@ -36,6 +37,10 @@
 		{#if !$user}
 			<CtaButton className="!mix-blend-normal w-20" whiteBg on:click={signInWithGoogle}
 				>Sign in</CtaButton
+			>
+		{:else}
+			<CtaButton className="!mix-blend-normal w-20" whiteBg on:click={() => goto('/dashboard')}
+				>Dashboard</CtaButton
 			>
 		{/if}
 	</div>

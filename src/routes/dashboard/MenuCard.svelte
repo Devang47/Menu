@@ -34,7 +34,7 @@
 <div
 	class="flex h-fit items-center justify-between gap-4 rounded-md border border-light-4/50 bg-white/10 py-2 pl-4 pr-2 text-sm"
 >
-	<div class="overflow-hidden text-ellipsis whitespace-nowrap font-medium text-light-1">
+	<div class="overflow-hidden text-ellipsis text-base whitespace-nowrap font-medium text-light-1">
 		{data.hotel.name}
 	</div>
 
