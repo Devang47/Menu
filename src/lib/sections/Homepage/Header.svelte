@@ -12,7 +12,7 @@
 </script>
 
 <header>
-	<div class="absolute top-2 right-2 md:top-5 md:right-6">
+	<div class="absolute top-2 right-2 mix-blend-color-dodge md:top-5 md:right-6">
 		<Pear />
 	</div>
 
