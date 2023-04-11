@@ -56,7 +56,7 @@
 </script>
 
 <nav>
-	<div class="fixed top-0 left-0 z-10 w-full py-4 backdrop-blur bg-black/10">
+	<div class="fixed top-0 left-0 z-10 w-full bg-black/10 py-4 backdrop-blur">
 		<div class="mx-auto flex max-w-large items-center justify-between px-6">
 			<button on:click={() => (isOpen = true)} class="logo py-4 px-2">
 				<NavIcon />
@@ -72,7 +72,7 @@
 	{#if isOpen}
 		<div
 			transition:fade={{ duration: 300, easing: (n) => n * n }}
-			class="fixed top-0 left-0 z-20 h-screen w-full bg-dark-2/80 text-center backdrop-blur"
+			class="fixed top-0 left-0 z-20 h-screen w-full overflow-y-scroll bg-dark-2/80 text-center backdrop-blur"
 		>
 			<div class="mx-auto max-w-large">
 				<div class="flex items-center justify-between px-4 py-3">
@@ -88,7 +88,7 @@
 						<button
 							in:fly={{ y: 20, easing: (x) => x * x, delay: i * 100 + 200, duration: 150 }}
 							on:click={() => handleButtonClick(e)}
-							class={clsx('w-full py-2 px-2 text-left', e === 'Sign out' && 'font-bold')}
+							class={clsx('w-fit py-2 px-2 text-left', e === 'Sign out' && 'font-bold')}
 						>
 							{e}
 						</button>

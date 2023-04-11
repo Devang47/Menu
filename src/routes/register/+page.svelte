@@ -196,7 +196,6 @@
 							on:click={() => {
 								const result = confirm('Do you want to clear all fields?');
 								if (!result) return;
-								console.log(result);
 								localStorage.setItem('pending-data', '');
 								pendingRegisterationData.set(defaultData);
 							}}
