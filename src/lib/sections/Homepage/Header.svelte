@@ -61,7 +61,7 @@
 
 <style lang="postcss">
 	header {
-		background-image: url('https://cdn.raster.app/kitatsu/library-1/vQIsc0ug2a?ixlib=js-3.7.0&height=1500&width=3514&compress=false&blur=400&sat=40&s=8139f86cf2d1ea97cdc01aec9821fe0f');
+		background-image: url('https://cdn.raster.app/kitatsu/library-1/vQIsc0ug2a?ixlib=js-3.7.0&height=1500&width=3514&blur=400&compress=false&sat=40&fm=webp&q=65&s=4026944e8ca8c6b5350a2af40c2fe746');
 		@apply relative flex flex-col items-center justify-center bg-cover bg-center pb-32 text-light-2 sm:pb-48 md:bg-fixed;
 		font-family: neue-montreal;
 
