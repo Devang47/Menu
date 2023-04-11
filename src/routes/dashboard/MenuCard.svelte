@@ -34,7 +34,10 @@
 <div
 	class="flex h-fit items-center justify-between gap-4 rounded-md border border-light-4/50 bg-white/10 py-2 pl-4 pr-2 text-sm"
 >
-	<div class="overflow-hidden text-ellipsis text-base whitespace-nowrap font-medium text-light-1">
+	<div
+		title={data.hotel.name}
+		class="overflow-hidden text-ellipsis whitespace-nowrap text-base font-medium text-light-1"
+	>
 		{data.hotel.name}
 	</div>
 
@@ -42,23 +45,29 @@
 		<button
 			{disabled}
 			class="custom-border rounded p-1 hover:text-[#dddddd]"
+			title="View menu"
 			on:click={() => window.open(`/h/${data.slug}`, '_blank')}
 		>
+			<div class="sr-only">View menu</div>
 			<ExternalLink />
 		</button>
 		<button
 			{disabled}
 			class="custom-border rounded p-1.5 hover:text-[#dddddd]"
+			title="Show qr code"
 			on:click={() => (qrCodeViewerSlug = data.slug)}
 		>
+			<div class="sr-only">Show Qr code</div>
 			<Qr />
 		</button>
 
 		<button
 			{disabled}
 			class="custom-border rounded p-1.5 hover:text-[#dddddd]"
+			title="Show more options"
 			on:click={() => (modalOpen = true)}
 		>
+			<div class="sr-only">Show more options</div>
 			<OptionsIcon />
 		</button>
 

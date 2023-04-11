@@ -23,6 +23,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
+			<div class="sr-only">Github</div>
 			<GithubIcon className="w-5 md:w-6" />
 		</a>
 		<a
@@ -31,6 +32,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
+			<div class="sr-only">Twitter</div>
 			<TwitterIcon className="w-5 md:w-6" />
 		</a>
 

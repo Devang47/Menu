@@ -59,6 +59,7 @@
 	<div class="fixed top-0 left-0 z-10 w-full bg-black/10 py-4 backdrop-blur">
 		<div class="mx-auto flex max-w-large items-center justify-between px-6">
 			<button on:click={() => (isOpen = true)} class="logo py-4 px-2">
+				<div class="sr-only">Logo</div>
 				<NavIcon />
 			</button>
 			{#if $isLoading}
@@ -79,6 +80,7 @@
 					<Logo className="ml-2" />
 
 					<button on:click={() => (isOpen = false)} class="rounded-lg py-5 px-4">
+						<div class="sr-only">close</div>
 						<CrossIcon />
 					</button>
 				</div>
