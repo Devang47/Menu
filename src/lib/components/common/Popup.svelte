@@ -12,7 +12,6 @@
 		if (!$analyticsPopupOpen) return;
 
 		analyticsData = await getHotelData($analyticsPopupOpen);
-		console.log(analyticsData);
 	});
 </script>
 
