@@ -40,7 +40,7 @@ export const signOutUser = async () => {
 
 export const getCurrentUser = () => {
 	onAuthStateChanged(auth, (userData) => {
-		const notProtectedPages = ['/h/[id]', '/register', '/dashboard'];
+		const protectedPages = ['/h', '/register', '/dashboard'];
 
 		if (userData) {
 			isLoading.set(true);
@@ -50,7 +50,7 @@ export const getCurrentUser = () => {
 				goto('/dashboard');
 			}
 		} else {
-			if (notProtectedPages.includes(get(page).route?.id || '/')) {
+			if (protectedPages.includes(get(page).route?.id || '/dashboard')) {
 				goto('/login');
 			}
 		}

@@ -7,8 +7,10 @@ interface RegisterationData {
 	author: string;
 	hotel: {
 		name: string;
-		tagline: string;
+		description: string;
 		address: string;
+		email: string;
+		number: string;
 	};
 	slug: string;
 	currency: 'INR' | 'USD';
@@ -20,4 +22,6 @@ interface RegisterationData {
 			price: string;
 		}[];
 	}[];
+	createdOn?: Date;
+	lastVisitedOn?: Date;
 }

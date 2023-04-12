@@ -8,9 +8,10 @@
 	import { deleteHotelMenu } from '$utils/db';
 	import clsx from 'clsx';
 	import { createEventDispatcher } from 'svelte';
-	import { isLoading } from '$stores';
+	import { analyticsPopupOpen, isLoading } from '$stores';
 	import DeleteIcon from '$lib/icons/DeleteIcon.svelte';
 	import EditIcon from '$lib/icons/EditIcon.svelte';
+	import AnalyticsIcon from '$lib/icons/AnalyticsIcon.svelte';
 
 	let modalOpen = false;
 	let disabled = false;
@@ -78,6 +79,18 @@
 				use:clickOutside
 				on:click_outside={() => (modalOpen = false)}
 			>
+				<button
+					{disabled}
+					on:click={() => {
+						$analyticsPopupOpen = data.slug;
+					}}
+					class={clsx(
+						'flex w-full items-center justify-start gap-2 px-4 py-2 text-white outline-2 outline-offset-2 hover:bg-white/20 disabled:opacity-50'
+					)}
+				>
+					<AnalyticsIcon />
+					Analytics
+				</button>
 				<button
 					{disabled}
 					on:click={() => {

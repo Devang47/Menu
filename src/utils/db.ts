@@ -8,7 +8,9 @@ import {
 	query,
 	setDoc,
 	where,
-	type DocumentData
+	type DocumentData,
+	updateDoc,
+	increment
 } from 'firebase/firestore';
 import { cardsByUser } from '$stores';
 import { page } from '$app/stores';
@@ -19,7 +21,9 @@ const db = getFirestore();
 export const publishHotelMenu = async (data: RegisterationData) => {
 	try {
 		await setDoc(doc(db, 'hotels', data.slug), {
-			...data
+			...data,
+			createdOn: new Date(),
+			lastVisitedOn: new Date()
 		});
 
 		return true;
@@ -77,6 +81,21 @@ export const getHotelData = async (slug: string): Promise<DocumentData> =>
 			});
 		});
 	});
+
+export const recordPageVisit = async (slug: string) => {
+	try {
+		const docRef = doc(db, 'hotels', slug);
+
+		updateDoc(docRef, {
+			visits: increment(1),
+			lastVisitedOn: new Date()
+		});
+
+		return true;
+	} catch (error) {
+		console.log(error);
+	}
+};
 
 export const deleteHotelMenu = async (slug: string) => {
 	try {

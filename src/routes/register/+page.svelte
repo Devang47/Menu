@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import LoadingScreenDefault from '$lib/components/common/LoadingScreenDefault.svelte';
-	import Navbar from '$lib/components/common/navbar.svelte';
+	import Navbar from '$lib/components/common/Navbar.svelte';
 	import Container from '$lib/components/layout/Container.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
 	import GoBack from '$lib/components/primitives/GoBack.svelte';
@@ -21,8 +21,10 @@
 	const defaultData: RegisterationData = {
 		hotel: {
 			name: '',
-			tagline: '',
-			address: ''
+			description: '',
+			address: '',
+			email: '',
+			number: ''
 		},
 		author: '',
 		slug: '',
@@ -150,27 +152,40 @@
 								.toLowerCase();
 							validateSlug();
 						}}
-						label="Registered hotel name:"
-						placeholder="Hotel name here ..."
+						label="Registered hotel name: *"
+						placeholder="The Taj"
 					/>
 					<TextInput
 						required
-						bind:value={$pendingRegisterationData.hotel.tagline}
-						label="Hotel tagline:"
-						placeholder="Tagline here ..."
+						bind:value={$pendingRegisterationData.hotel.description}
+						label="Hotel description: *"
+						placeholder="The best Luxury Hotels & Resorts in India."
 					/>
 					<TextInput
 						required
 						bind:value={$pendingRegisterationData.hotel.address}
-						label="Address:"
-						placeholder="Address here ..."
+						label="Address: *"
+						placeholder="123 South street, El"
+					/>
+					<TextInput
+						required
+						bind:value={$pendingRegisterationData.hotel.email}
+						label="Email: *"
+						type="email"
+						placeholder="johndaniel@hello.com"
+					/>
+					<TextInput
+						bind:value={$pendingRegisterationData.hotel.number}
+						label="Number:"
+						type="tel"
+						placeholder="+91 123 123 1245"
 					/>
 
 					<div class="mt-10 flex flex-col items-center justify-center gap-6">
 						<Button
 							type="submit"
 							disabled={!$pendingRegisterationData.hotel.name.trim() ||
-								!$pendingRegisterationData.hotel.tagline.trim() ||
+								!$pendingRegisterationData.hotel.description.trim() ||
 								!$pendingRegisterationData.hotel.address.trim()}
 							label="Proceed"
 							className="w-32 px-6"

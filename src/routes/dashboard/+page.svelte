@@ -2,17 +2,18 @@
 	import { goto } from '$app/navigation';
 	import Heading from '$lib/components/common/Heading.svelte';
 	import LoadingScreenDefault from '$lib/components/common/LoadingScreenDefault.svelte';
-	import Navbar from '$lib/components/common/navbar.svelte';
+	import Navbar from '$lib/components/common/Navbar.svelte';
 	import Container from '$lib/components/layout/Container.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
 	import Card from '$lib/components/primitives/Card.svelte';
 	import QrCode from '$lib/components/QRCode.svelte';
 	import LoadingIcon from '$lib/icons/LoadingIcon.svelte';
-	import { cardsByUser, isLoading, user } from '$stores';
+	import { analyticsPopupOpen, cardsByUser, isLoading, user } from '$stores';
 	import { getUserHotels } from '$utils/db';
 	import { fade, scale } from 'svelte/transition';
 	import MenuCard from './MenuCard.svelte';
 	import { onMount } from 'svelte';
+	import Popup from '$lib/components/common/Popup.svelte';
 
 	let areCardsLoading = true;
 	let qrCodeViewerSlug = '';
@@ -91,6 +92,10 @@
 			</div>
 		</div>
 	{/key}
+{/if}
+
+{#if $analyticsPopupOpen}
+	<Popup />
 {/if}
 
 <style lang="postcss">

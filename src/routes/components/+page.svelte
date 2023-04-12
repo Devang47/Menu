@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/components/register/RegisterHeader.svelte';
-	import Navbar from '$lib/components/common/navbar.svelte';
+	import Navbar from '$lib/components/common/Navbar.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
 	import Card from '$lib/components/primitives/Card.svelte';
 	import GoBack from '$lib/components/primitives/GoBack.svelte';
