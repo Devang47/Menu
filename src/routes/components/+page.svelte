@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import Header from '$lib/components/register/RegisterHeader.svelte';
 	import Navbar from '$lib/components/common/Navbar.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
@@ -38,4 +38,4 @@
 			{ value: 'third', id: 2 }
 		]}
 	/>
-</div>
+</div> -->
